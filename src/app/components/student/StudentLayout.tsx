@@ -2,7 +2,7 @@ import { Outlet, NavLink, useNavigate } from 'react-router';
 import {
   LayoutDashboard, Search, FileText, Bell, User, LogOut, ChevronRight
 } from 'lucide-react';
-import wardiereLogo from '../../../imports/Wardiere.png';
+import tawafuqLogo from '../../../imports/Tawafuq.png';
 
 const navItems = [
   { to: '/student/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
@@ -28,16 +28,16 @@ export function StudentLayout() {
         style={{ width: '280px' }}
       >
         {/* Logo */}
-        <div className="p-6 border-b border-gray-100">
-          <div className="flex items-center gap-3">
-            <img src={wardiereLogo} alt="Wardiere" className="h-8 w-auto" />
+        <div className="px-4 py-6 border-b border-gray-100">
+          <div className="w-full min-w-0 flex justify-center">
+            <img src={tawafuqLogo} alt="Tawafuq" className="h-[12vw] min-h-[90px] max-h-[400px] w-auto max-w-full object-contain" />
           </div>
         </div>
 
         {/* Profile Summary */}
-        <div className="p-4 mx-4 my-4 bg-gradient-to-r from-indigo-50 to-violet-50 rounded-2xl border border-indigo-100">
+        <div className="p-4 mx-4 my-4 bg-gradient-to-r from-[#EAF2FB] to-[#D9E8F8] rounded-2xl border border-[#BFD2EA]">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white" style={{ fontWeight: 700 }}>J</div>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#003267] to-[#00509E] flex items-center justify-center text-white" style={{ fontWeight: 700 }}>J</div>
             <div className="flex-1 min-w-0">
               <p className="text-gray-900 text-sm truncate" style={{ fontWeight: 600 }}>John Smith</p>
               <p className="text-gray-500 text-xs truncate">Software Engineering</p>
@@ -49,7 +49,7 @@ export function StudentLayout() {
               <span style={{ fontWeight: 600 }}>80%</span>
             </div>
             <div className="bg-white rounded-full h-1.5">
-              <div className="bg-gradient-to-r from-indigo-500 to-violet-500 h-1.5 rounded-full" style={{ width: '80%' }} />
+              <div className="bg-gradient-to-r from-[#003267] to-[#00509E] h-1.5 rounded-full" style={{ width: '80%' }} />
             </div>
           </div>
         </div>
@@ -66,8 +66,8 @@ export function StudentLayout() {
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group ${
                     isActive
-                      ? 'bg-gradient-to-r from-indigo-500 to-violet-500 text-white shadow-md shadow-indigo-200'
-                      : 'text-gray-600 hover:bg-indigo-50 hover:text-indigo-600'
+                      ? 'bg-gradient-to-r from-[#003267] to-[#00509E] text-white shadow-md shadow-[#003267]/25'
+                      : 'text-gray-600 hover:bg-[#EAF2FB] hover:text-[#003267]'
                   }`
                 }
               >

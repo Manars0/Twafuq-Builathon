@@ -7,7 +7,10 @@ function MatchCircle({ percent, size = 60 }: { percent: number; size?: number })
   const radius = (size / 2) - 6;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (percent / 100) * circumference;
-  const color = percent >= 90 ? '#10B981' : percent >= 70 ? '#4F46E5' : '#F59E0B';
+  const color =
+  percent >= 90 ? '#10B981' :   // أخضر للنتيجة العالية
+  percent >= 70 ? '#f59e0b' :   // أزرق (بدل البنفسجي)
+  '#F59E0B'; 
 
   return (
     <div className="relative" style={{ width: size, height: size }}>
@@ -24,9 +27,9 @@ function MatchCircle({ percent, size = 60 }: { percent: number; size?: number })
 }
 
 const stats = [
-  { label: 'Matched Opportunities', value: '12', icon: Sparkles, color: 'from-indigo-500 to-violet-500', bg: 'bg-indigo-50', text: 'text-indigo-600' },
-  { label: 'Applications Submitted', value: '5', icon: FileText, color: 'from-blue-400 to-cyan-500', bg: 'bg-blue-50', text: 'text-blue-600' },
-  { label: 'Profile Views', value: '34', icon: Eye, color: 'from-violet-500 to-purple-500', bg: 'bg-violet-50', text: 'text-violet-600' },
+  { label: 'Matched Opportunities', value: '12', icon: Sparkles, color: 'from-[#003267] to-[#00509E]', bg: 'bg-[#EAF2FB]', text: 'text-[#003267]' },
+  { label: 'Applications Submitted', value: '5', icon: FileText, color: 'from-[#003267] to-[#004685]', bg: 'bg-[#EAF2FB]', text: 'text-[#003267]' },
+  { label: 'Profile Views', value: '34', icon: Eye, color: 'from-[#003267] to-[#00509E]', bg: 'bg-[#EAF2FB]', text: 'text-[#003267]' },
   { label: 'Applications Accepted', value: '2', icon: CheckCircle2, color: 'from-emerald-400 to-green-500', bg: 'bg-green-50', text: 'text-green-600' },
 ];
 
@@ -40,16 +43,16 @@ export function StudentDashboard() {
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-indigo-700 to-violet-700 rounded-3xl p-6 text-white"
+        className="relative overflow-hidden bg-gradient-to-br from-[#003267] via-[#004685] to-[#00509E] rounded-3xl p-6 text-white"
       >
         <div className="absolute top-0 right-0 w-full h-full opacity-10">
           <div className="absolute top-4 right-4 w-32 h-32 bg-white rounded-full blur-3xl" />
         </div>
         <div className="relative z-10 flex items-center justify-between">
           <div>
-            <p className="text-indigo-200 text-sm mb-1">Welcome back,</p>
-            <h1 className="text-white text-2xl mb-2" style={{ fontWeight: 700 }}>John Smith 👋</h1>
-            <p className="text-indigo-200 text-sm">You have <span className="text-white" style={{ fontWeight: 600 }}>3 new opportunities</span> waiting for you today</p>
+            <p className="text-[#C6DCF1] text-sm mb-1">Welcome back,</p>
+            <h1 className="text-white text-2xl mb-2" style={{ fontWeight: 700 }}>John Smith </h1>
+            <p className="text-[#C6DCF1] text-sm">You have <span className="text-white" style={{ fontWeight: 600 }}>3 new opportunities</span> waiting for you today</p>
             <button
               onClick={() => navigate('/student/opportunities')}
               className="mt-4 flex items-center gap-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white border border-white/20 px-4 py-2 rounded-xl transition-all text-sm"
@@ -62,7 +65,7 @@ export function StudentDashboard() {
           </div>
           <div className="hidden md:flex flex-col items-center">
             <MatchCircle percent={80} size={100} />
-            <p className="text-indigo-200 text-xs mt-2">Profile Completion</p>
+            <p className="text-[#C6DCF1] text-xs mt-2">Profile Completion</p>
           </div>
         </div>
       </motion.div>
@@ -95,7 +98,7 @@ export function StudentDashboard() {
           <h2 className="text-gray-900 text-xl" style={{ fontWeight: 700 }}>Top Matched Opportunities</h2>
           <button
             onClick={() => navigate('/student/opportunities')}
-            className="flex items-center gap-1 text-indigo-600 text-sm hover:underline"
+            className="flex items-center gap-1 text-[#003267] text-sm hover:underline"
           >
             <span>View All</span>
             <ChevronRight className="w-4 h-4" />
@@ -109,7 +112,7 @@ export function StudentDashboard() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 + i * 0.1 }}
-              className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all cursor-pointer group"
+              className="bg-white rounded-2xl p-5 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#BFD2EA] transition-all cursor-pointer group"
               onClick={() => navigate(`/student/opportunities/${opp.id}`)}
             >
               <div className="flex items-start gap-4">
@@ -134,13 +137,13 @@ export function StudentDashboard() {
                   </div>
                   <div className="flex gap-1 mt-2 flex-wrap">
                     {opp.skills.slice(0, 2).map((skill) => (
-                      <span key={skill} className="bg-indigo-50 text-indigo-600 text-xs px-2 py-0.5 rounded-full">{skill}</span>
+                      <span key={skill} className="bg-[#EAF2FB] text-[#003267] text-xs px-2 py-0.5 rounded-full">{skill}</span>
                     ))}
                   </div>
                 </div>
               </div>
               <button
-                className="mt-4 w-full text-center text-indigo-600 text-sm border border-indigo-200 bg-indigo-50 rounded-xl py-2 group-hover:bg-indigo-600 group-hover:text-white transition-all"
+                className="mt-4 w-full text-center text-[#003267] text-sm border border-[#BFD2EA] bg-[#EAF2FB] rounded-xl py-2 group-hover:bg-[#003267] group-hover:text-white transition-all"
                 style={{ fontWeight: 600 }}
               >
                 View Details

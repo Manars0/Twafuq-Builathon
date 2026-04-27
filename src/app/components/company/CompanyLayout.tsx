@@ -2,7 +2,7 @@ import { Outlet, NavLink, useNavigate } from 'react-router';
 import {
   LayoutDashboard, Plus, Briefcase, Users, Bell, CreditCard, LogOut, Building2
 } from 'lucide-react';
-import wardiereLogo from '../../../imports/Wardiere.png';
+import tawafuqLogo from '../../../imports/Tawafuq.png';
 
 const navItems = [
   { to: '/company/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
@@ -29,9 +29,9 @@ export function CompanyLayout() {
         style={{ width: '280px' }}
       >
         {/* Logo */}
-        <div className="p-6 border-b border-gray-100">
-          <div className="flex items-center gap-3">
-            <img src={wardiereLogo} alt="Wardiere" className="h-10 w-auto" />
+        <div className="px-4 py-6 border-b border-gray-100">
+          <div className="flex flex-col items-center gap-2 w-full min-w-0 text-center">
+            <img src={tawafuqLogo} alt="Tawafuq" className="h-[12vw] min-h-[90px] max-h-[400px] w-auto max-w-full object-contain" />
             <div>
               <p className="text-gray-400 text-xs">Company Dashboard</p>
             </div>

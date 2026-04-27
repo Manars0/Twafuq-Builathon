@@ -16,14 +16,14 @@ const options = [
     icon: Building2,
     title: 'Private',
     description: 'Opportunities with private companies and corporations',
-    gradient: 'from-blue-500 to-indigo-500',
+    gradient: 'from-[#003267] to-[#00509E]',
   },
   {
     id: 'no-preference',
     icon: Grid,
     title: 'No Preference',
     description: 'Show me opportunities from both government and private sectors',
-    gradient: 'from-violet-500 to-purple-500',
+    gradient: 'from-[#003267] to-[#004685]',
   },
 ];
 
@@ -38,7 +38,7 @@ export function SectorSelection() {
   };
 
   return (
-    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 flex items-center justify-center p-6">
+    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-[#EAF2FB] flex items-center justify-center p-6">
       <div className="w-full max-w-3xl">
         {/* Header */}
         <motion.div
@@ -46,7 +46,7 @@ export function SectorSelection() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-indigo-500/30">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#003267] to-[#00509E] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#003267]/30">
             <Sparkles className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-gray-900 text-3xl mb-3" style={{ fontWeight: 800 }}>
@@ -74,8 +74,8 @@ export function SectorSelection() {
                 onClick={() => setSelected(option.id)}
                 className={`group cursor-pointer bg-white rounded-2xl p-6 border-2 transition-all duration-300 hover:scale-[1.01] ${
                   isSelected
-                    ? 'border-indigo-400 shadow-lg shadow-indigo-500/20'
-                    : 'border-gray-100 hover:border-indigo-200 shadow-sm hover:shadow-md'
+                    ? 'border-[#00509E] shadow-lg shadow-[#003267]/20'
+                    : 'border-gray-100 hover:border-[#BFD2EA] shadow-sm hover:shadow-md'
                 }`}
               >
                 <div className="flex items-center gap-5">
@@ -93,7 +93,7 @@ export function SectorSelection() {
                   <div
                     className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${
                       isSelected
-                        ? 'border-indigo-500 bg-indigo-500'
+                        ? 'border-[#003267] bg-[#003267]'
                         : 'border-gray-300 bg-white'
                     }`}
                   >
@@ -116,7 +116,7 @@ export function SectorSelection() {
           disabled={!selected}
           className={`w-full rounded-2xl py-4 transition-all duration-200 ${
             selected
-              ? 'bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/30'
+              ? 'bg-gradient-to-r from-[#003267] to-[#00509E] hover:from-[#00264D] hover:to-[#004685] text-white shadow-lg shadow-[#003267]/25 hover:shadow-[#003267]/35'
               : 'bg-gray-200 text-gray-400 cursor-not-allowed'
           }`}
           style={{ fontWeight: 600 }}
@@ -126,8 +126,8 @@ export function SectorSelection() {
 
         {/* Progress indicator */}
         <div className="flex items-center justify-center gap-2 mt-6">
-          <div className="w-8 h-1.5 rounded-full bg-indigo-600" />
-          <div className="w-8 h-1.5 rounded-full bg-indigo-600" />
+          <div className="w-8 h-1.5 rounded-full bg-[#003267]" />
+          <div className="w-8 h-1.5 rounded-full bg-[#003267]" />
           <div className="w-8 h-1.5 rounded-full bg-gray-200" />
         </div>
       </div>

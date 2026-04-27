@@ -30,7 +30,7 @@ export function OpportunityDetails() {
   const radius = 52;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (matchPercent / 100) * circumference;
-  const color = matchPercent >= 90 ? '#10B981' : matchPercent >= 70 ? '#4F46E5' : '#F59E0B';
+  const color = matchPercent >= 90 ? '#10B981' : matchPercent >= 70 ? '#003267' : '#F59E0B';
 
   return (
     <div className="p-6 max-w-3xl">
@@ -56,7 +56,7 @@ export function OpportunityDetails() {
             </div>
             <div>
               <h1 className="text-gray-900 text-xl mb-1" style={{ fontWeight: 700 }}>{opp.position}</h1>
-              <p className="text-indigo-600" style={{ fontWeight: 600 }}>{opp.company}</p>
+              <p className="text-[#003267]" style={{ fontWeight: 600 }}>{opp.company}</p>
               <div className="flex items-center gap-3 mt-2 text-gray-400 text-sm">
                 <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" />{opp.location}</span>
                 <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{opp.duration}</span>
@@ -87,7 +87,7 @@ export function OpportunityDetails() {
               </div>
             </div>
             <p className="text-gray-500 text-sm mt-2">Match Rate</p>
-            <span className="flex items-center gap-1 bg-indigo-50 text-indigo-600 text-xs px-2 py-1 rounded-full mt-1">
+            <span className="flex items-center gap-1 bg-[#EAF2FB] text-[#003267] text-xs px-2 py-1 rounded-full mt-1">
               <Sparkles className="w-3 h-3" />
               AI-Analyzed
             </span>
@@ -102,7 +102,7 @@ export function OpportunityDetails() {
           </div>
           <div>
             <p className="text-gray-400 text-xs">Internship Type</p>
-            <span className="bg-indigo-50 text-indigo-700 text-sm px-3 py-1 rounded-full" style={{ fontWeight: 500 }}>{opp.type}</span>
+            <span className="bg-[#EAF2FB] text-[#003267] text-sm px-3 py-1 rounded-full" style={{ fontWeight: 500 }}>{opp.type}</span>
           </div>
         </div>
       </motion.div>
@@ -121,7 +121,7 @@ export function OpportunityDetails() {
         <ul className="space-y-2">
           {opp.requirements.map((req) => (
             <li key={req} className="flex items-start gap-2 text-gray-600 text-sm">
-              <CheckCircle2 className="w-4 h-4 text-indigo-400 mt-0.5 flex-shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#4B76A4] mt-0.5 flex-shrink-0" />
               {req}
             </li>
           ))}
@@ -136,7 +136,7 @@ export function OpportunityDetails() {
         className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm mb-4"
       >
         <div className="flex items-center gap-2 mb-4">
-          <Sparkles className="w-5 h-5 text-indigo-500" />
+          <Sparkles className="w-5 h-5 text-[#003267]" />
           <h2 className="text-gray-900" style={{ fontWeight: 600 }}>Skills Comparison</h2>
         </div>
 
@@ -144,13 +144,13 @@ export function OpportunityDetails() {
         <div className="mb-5">
           <div className="flex justify-between text-sm mb-2">
             <span className="text-gray-600">Matching Skills</span>
-            <span className="text-indigo-600" style={{ fontWeight: 600 }}>
+            <span className="text-[#003267]" style={{ fontWeight: 600 }}>
               {opp.skills.filter((s) => mySkills.includes(s)).length} / {opp.skills.length}
             </span>
           </div>
           <div className="bg-gray-100 rounded-full h-3">
             <motion.div
-              className="bg-gradient-to-r from-indigo-500 to-violet-500 h-3 rounded-full"
+              className="bg-gradient-to-r from-[#003267] to-[#00509E] h-3 rounded-full"
               initial={{ width: 0 }}
               animate={{ width: `${(opp.skills.filter((s) => mySkills.includes(s)).length / opp.skills.length) * 100}%` }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -172,7 +172,7 @@ export function OpportunityDetails() {
         transition={{ delay: 0.3 }}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-2xl py-5 flex items-center justify-center gap-3 shadow-xl shadow-indigo-500/25"
+        className="w-full bg-gradient-to-r from-[#003267] to-[#00509E] text-white rounded-2xl py-5 flex items-center justify-center gap-3 shadow-xl shadow-[#003267]/30"
         style={{ fontWeight: 700 }}
       >
         <Send className="w-5 h-5" />

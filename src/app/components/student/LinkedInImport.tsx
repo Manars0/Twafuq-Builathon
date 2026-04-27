@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { CheckCircle2, Linkedin, Sparkles, Edit3, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import wardiereLogo from '../../../imports/Wardiere.png';
 
 const loadingSteps = [
   'Connecting to LinkedIn...',
@@ -36,7 +35,7 @@ export function LinkedInImport() {
   }, []);
 
   return (
-    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 flex items-center justify-center p-6">
+    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-[#EAF2FB] flex items-center justify-center p-6">
       <div className="w-full max-w-2xl">
         <AnimatePresence mode="wait">
           {loading ? (
@@ -56,21 +55,21 @@ export function LinkedInImport() {
               {/* AI Processing Animation */}
               <div className="mb-8">
                 <div className="relative w-32 h-32 mx-auto mb-6">
-                  <div className="absolute inset-0 rounded-full border-4 border-indigo-100" />
+                  <div className="absolute inset-0 rounded-full border-4 border-[#D9E8F8]" />
                   <motion.div
-                    className="absolute inset-0 rounded-full border-4 border-indigo-500 border-t-transparent"
+                    className="absolute inset-0 rounded-full border-4 border-[#003267] border-t-transparent"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                   />
-                  <div className="absolute inset-4 rounded-full bg-indigo-50 flex items-center justify-center">
-                    <Sparkles className="w-8 h-8 text-indigo-500" />
+                  <div className="absolute inset-4 rounded-full bg-[#EAF2FB] flex items-center justify-center">
+                    <Sparkles className="w-8 h-8 text-[#003267]" />
                   </div>
                 </div>
 
                 {/* Progress bar */}
                 <div className="bg-gray-100 rounded-full h-2 mb-4">
                   <motion.div
-                    className="bg-gradient-to-r from-indigo-500 to-violet-500 h-2 rounded-full"
+                    className="bg-gradient-to-r from-[#003267] to-[#00509E] h-2 rounded-full"
                     animate={{ width: `${((currentLoadingStep + 1) / loadingSteps.length) * 100}%` }}
                     transition={{ duration: 0.5 }}
                     style={{ width: 0 }}
@@ -89,7 +88,7 @@ export function LinkedInImport() {
                   >
                     <div className={`w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 transition-all ${
                       index < currentLoadingStep ? 'bg-green-100' :
-                      index === currentLoadingStep ? 'bg-indigo-100' : 'bg-gray-100'
+                      index === currentLoadingStep ? 'bg-[#EAF2FB]' : 'bg-gray-100'
                     }`}>
                       {index < currentLoadingStep ? (
                         <CheckCircle2 className="w-4 h-4 text-green-500" />
@@ -97,7 +96,7 @@ export function LinkedInImport() {
                         <motion.div
                           animate={{ scale: [1, 1.2, 1] }}
                           transition={{ duration: 0.8, repeat: Infinity }}
-                          className="w-2 h-2 bg-indigo-500 rounded-full"
+                          className="w-2 h-2 bg-[#003267] rounded-full"
                         />
                       ) : (
                         <div className="w-2 h-2 bg-gray-300 rounded-full" />
@@ -128,7 +127,7 @@ export function LinkedInImport() {
 
                 {/* Profile Info */}
                 <div className="flex items-center gap-4 mb-6 p-4 bg-gray-50 rounded-2xl">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-400 to-violet-500 flex items-center justify-center text-white text-2xl" style={{ fontWeight: 700 }}>
+                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#003267] to-[#00509E] flex items-center justify-center text-white text-2xl" style={{ fontWeight: 700 }}>
                     J
                   </div>
                   <div>
@@ -136,7 +135,7 @@ export function LinkedInImport() {
                     <p className="text-gray-500 text-sm">Software Engineering Student - King Abdullah University</p>
                     <p className="text-gray-400 text-xs">Riyadh, Saudi Arabia</p>
                   </div>
-                  <button className="ml-auto text-indigo-500 hover:text-indigo-600">
+                  <button className="ml-auto text-[#003267] hover:text-[#004685]">
                     <Edit3 className="w-5 h-5" />
                   </button>
                 </div>
@@ -147,26 +146,26 @@ export function LinkedInImport() {
                     <label className="text-gray-500 text-sm block mb-2">Major</label>
                     <input
                       defaultValue="Software Engineering"
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-indigo-400 transition-colors"
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-[#00509E] transition-colors"
                     />
                   </div>
                   <div>
                     <label className="text-gray-500 text-sm block mb-2">University</label>
                     <input
                       defaultValue="King Abdullah University of Science and Technology"
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-indigo-400 transition-colors"
+                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-[#00509E] transition-colors"
                     />
                   </div>
                   <div>
                     <label className="text-gray-500 text-sm block mb-2">Skills</label>
                     <div className="flex flex-wrap gap-2">
                       {skills.map((skill) => (
-                        <span key={skill} className="bg-indigo-50 text-indigo-700 border border-indigo-200 text-sm px-3 py-1 rounded-full flex items-center gap-1">
+                        <span key={skill} className="bg-[#EAF2FB] text-[#003267] border border-[#BFD2EA] text-sm px-3 py-1 rounded-full flex items-center gap-1">
                           {skill}
-                          <button className="text-indigo-400 hover:text-indigo-600">×</button>
+                          <button className="text-[#4B76A4] hover:text-[#003267]">×</button>
                         </span>
                       ))}
-                      <button className="border-2 border-dashed border-gray-300 text-gray-400 text-sm px-3 py-1 rounded-full hover:border-indigo-300 hover:text-indigo-500 transition-colors">
+                      <button className="border-2 border-dashed border-gray-300 text-gray-400 text-sm px-3 py-1 rounded-full hover:border-[#7FA7CF] hover:text-[#003267] transition-colors">
                         + Add
                       </button>
                     </div>
@@ -183,7 +182,7 @@ export function LinkedInImport() {
 
               <button
                 onClick={() => navigate('/student/review')}
-                className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-2xl py-4 flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20"
+                className="w-full bg-gradient-to-r from-[#003267] to-[#00509E] text-white rounded-2xl py-4 flex items-center justify-center gap-2 shadow-lg shadow-[#003267]/25"
                 style={{ fontWeight: 600 }}
               >
                 <span>Confirm Data and Continue</span>

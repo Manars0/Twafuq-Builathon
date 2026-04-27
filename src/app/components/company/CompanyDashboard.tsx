@@ -39,7 +39,7 @@ export function CompanyDashboard() {
         <div className="relative z-10 flex items-center justify-between flex-wrap gap-4">
           <div>
             <p className="text-emerald-200 text-sm mb-1">Welcome,</p>
-            <h1 className="text-white text-2xl mb-2" style={{ fontWeight: 700 }}>Saudi Aramco 🏢</h1>
+            <h1 className="text-white text-2xl mb-2" style={{ fontWeight: 700 }}>Saudi Aramco</h1>
             <p className="text-emerald-200 text-sm">
               AI found <span className="text-white" style={{ fontWeight: 600 }}>8 excellent candidates</span> for your posted opportunities
             </p>

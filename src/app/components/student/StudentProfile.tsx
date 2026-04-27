@@ -35,7 +35,7 @@ export function StudentProfile() {
           <h2 className="text-gray-800" style={{ fontWeight: 600 }}>Personal Information</h2>
           <button
             onClick={() => setEditingSection(editingSection === 'info' ? null : 'info')}
-            className="flex items-center gap-1.5 text-indigo-600 text-sm bg-indigo-50 px-3 py-1.5 rounded-xl hover:bg-indigo-100 transition-colors"
+            className="flex items-center gap-1.5 text-[#003267] text-sm bg-[#EAF2FB] px-3 py-1.5 rounded-xl hover:bg-[#D9E8F8] transition-colors"
           >
             <Edit3 className="w-3.5 h-3.5" />
             {editingSection === 'info' ? 'Save' : 'Edit'}
@@ -45,16 +45,16 @@ export function StudentProfile() {
         {/* Avatar */}
         <div className="flex items-center gap-5 mb-6">
           <div className="relative">
-            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-3xl shadow-lg" style={{ fontWeight: 700 }}>
+            <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#003267] to-[#00509E] flex items-center justify-center text-white text-3xl shadow-lg" style={{ fontWeight: 700 }}>
               A
             </div>
-            <button className="absolute -bottom-1 -right-1 w-7 h-7 bg-indigo-600 rounded-full flex items-center justify-center shadow-md hover:bg-indigo-700 transition-colors">
+            <button className="absolute -bottom-1 -right-1 w-7 h-7 bg-[#003267] rounded-full flex items-center justify-center shadow-md hover:bg-[#00264D] transition-colors">
               <Camera className="w-3.5 h-3.5 text-white" />
             </button>
           </div>
           <div>
             <h3 className="text-gray-900 text-xl" style={{ fontWeight: 700 }}>John Smith</h3>
-            <p className="text-indigo-600">Software Engineering Student</p>
+            <p className="text-[#003267]">Software Engineering Student</p>
             <div className="flex items-center gap-3 mt-1 text-gray-400 text-sm">
               <span className="flex items-center gap-1"><MapPin className="w-3 h-3" />Riyadh</span>
               <span className="flex items-center gap-1"><Mail className="w-3 h-3" />ahmed@student.edu.sa</span>
@@ -63,34 +63,34 @@ export function StudentProfile() {
         </div>
 
         {/* Completion */}
-        <div className="bg-indigo-50 rounded-2xl p-4 mb-5">
+        <div className="bg-[#EAF2FB] rounded-2xl p-4 mb-5">
           <div className="flex justify-between text-sm mb-2">
-            <span className="text-indigo-700" style={{ fontWeight: 500 }}>Profile Completion</span>
-            <span className="text-indigo-700" style={{ fontWeight: 700 }}>80%</span>
+            <span className="text-[#003267]" style={{ fontWeight: 500 }}>Profile Completion</span>
+            <span className="text-[#003267]" style={{ fontWeight: 700 }}>80%</span>
           </div>
-          <div className="bg-indigo-100 rounded-full h-2">
-            <div className="bg-gradient-to-r from-indigo-500 to-violet-500 h-2 rounded-full" style={{ width: '80%' }} />
+          <div className="bg-[#D9E8F8] rounded-full h-2">
+            <div className="bg-gradient-to-r from-[#003267] to-[#00509E] h-2 rounded-full" style={{ width: '80%' }} />
           </div>
-          <p className="text-indigo-500 text-xs mt-2">Add your profile picture to complete your profile</p>
+          <p className="text-[#4B76A4] text-xs mt-2">Add your profile picture to complete your profile</p>
         </div>
 
         {editingSection === 'info' ? (
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="text-gray-500 text-xs mb-1 block">Full Name</label>
-              <input defaultValue="John Smith" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-indigo-400 transition-colors" />
+              <input defaultValue="John Smith" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-[#00509E] transition-colors" />
             </div>
             <div>
               <label className="text-gray-500 text-xs mb-1 block">Major</label>
-              <input defaultValue="Software Engineering" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-indigo-400 transition-colors" />
+              <input defaultValue="Software Engineering" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-[#00509E] transition-colors" />
             </div>
             <div>
               <label className="text-gray-500 text-xs mb-1 block">University</label>
-              <input defaultValue="King Abdullah University" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-indigo-400 transition-colors" />
+              <input defaultValue="King Abdullah University" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-[#00509E] transition-colors" />
             </div>
             <div>
               <label className="text-gray-500 text-xs mb-1 block">GPA</label>
-              <input defaultValue="4.7 / 5.0" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-indigo-400 transition-colors" />
+              <input defaultValue="4.7 / 5.0" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-3 py-2.5 text-gray-800 text-sm focus:outline-none focus:border-[#00509E] transition-colors" />
             </div>
           </div>
         ) : (
@@ -104,7 +104,7 @@ export function StudentProfile() {
               const Icon = item.icon;
               return (
                 <div key={item.label} className="bg-gray-50 rounded-xl p-3 flex items-start gap-2">
-                  <Icon className="w-4 h-4 text-indigo-400 mt-0.5" />
+                  <Icon className="w-4 h-4 text-[#4B76A4] mt-0.5" />
                   <div>
                     <p className="text-gray-400 text-xs">{item.label}</p>
                     <p className="text-gray-700 text-sm" style={{ fontWeight: 500 }}>{item.value}</p>
@@ -133,11 +133,11 @@ export function StudentProfile() {
             <motion.span
               key={skill}
               layout
-              className="bg-indigo-50 text-indigo-700 border border-indigo-200 text-sm px-3 py-1.5 rounded-full flex items-center gap-1.5"
+              className="bg-[#EAF2FB] text-[#003267] border border-[#BFD2EA] text-sm px-3 py-1.5 rounded-full flex items-center gap-1.5"
             >
               {skill}
               <button onClick={() => setSkills(skills.filter((s) => s !== skill))}
-                className="text-indigo-400 hover:text-indigo-600 transition-colors">
+                className="text-[#4B76A4] hover:text-[#003267] transition-colors">
                 <X className="w-3 h-3" />
               </button>
             </motion.span>
@@ -150,11 +150,11 @@ export function StudentProfile() {
             onChange={(e) => setNewSkill(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && addSkill()}
             placeholder="Add a new skill..."
-            className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-gray-800 text-sm placeholder-gray-400 focus:outline-none focus:border-indigo-400 transition-colors"
+            className="flex-1 bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-gray-800 text-sm placeholder-gray-400 focus:outline-none focus:border-[#00509E] transition-colors"
           />
           <button
             onClick={addSkill}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-xl transition-colors"
+            className="bg-[#003267] hover:bg-[#00264D] text-white px-4 py-2.5 rounded-xl transition-colors"
           >
             <Plus className="w-4 h-4" />
           </button>
@@ -170,7 +170,7 @@ export function StudentProfile() {
       >
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-gray-800" style={{ fontWeight: 600 }}>Experience</h2>
-          <button className="flex items-center gap-1 text-indigo-600 text-sm bg-indigo-50 px-3 py-1.5 rounded-xl hover:bg-indigo-100">
+          <button className="flex items-center gap-1 text-[#003267] text-sm bg-[#EAF2FB] px-3 py-1.5 rounded-xl hover:bg-[#D9E8F8]">
             <Plus className="w-3.5 h-3.5" />
             Add
           </button>
@@ -178,13 +178,13 @@ export function StudentProfile() {
 
         <div className="space-y-3">
           {experiences.map((exp, i) => (
-            <div key={i} className="relative p-4 bg-gray-50 rounded-xl border border-gray-200 group hover:border-indigo-200 transition-colors">
+            <div key={i} className="relative p-4 bg-gray-50 rounded-xl border border-gray-200 group hover:border-[#BFD2EA] transition-colors">
               <button className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 text-gray-400 hover:text-red-400 transition-all">
                 <X className="w-4 h-4" />
               </button>
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center flex-shrink-0">
-                  <Briefcase className="w-5 h-5 text-indigo-500" />
+                <div className="w-10 h-10 rounded-xl bg-[#D9E8F8] flex items-center justify-center flex-shrink-0">
+                  <Briefcase className="w-5 h-5 text-[#003267]" />
                 </div>
                 <div>
                   <p className="text-gray-900 text-sm" style={{ fontWeight: 600 }}>{exp.role}</p>

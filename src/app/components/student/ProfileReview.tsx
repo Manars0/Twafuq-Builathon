@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router';
 import { CheckCircle2, Edit3, Star, ArrowRight, User, Briefcase, GraduationCap } from 'lucide-react';
 import { motion } from 'motion/react';
-import wardiereLogo from '../../../imports/Wardiere.png';
 
 const skills = ['React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'SQL', 'Git'];
 const interests = ['Web Development', 'Artificial Intelligence', 'User Experience'];
@@ -37,8 +36,8 @@ function CircularProgress({ percent }: { percent: number }) {
         />
         <defs>
           <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#4F46E5" />
-            <stop offset="100%" stopColor="#7C3AED" />
+            <stop offset="0%" stopColor="#003267" />
+            <stop offset="100%" stopColor="#00509E" />
           </linearGradient>
         </defs>
       </svg>
@@ -53,7 +52,7 @@ export function ProfileReview() {
   const navigate = useNavigate();
 
   return (
-    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 flex items-center justify-center p-6">
+    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-[#EAF2FB] flex items-center justify-center p-6">
       <div className="w-full max-w-2xl">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
           {/* Completion Card */}
@@ -92,19 +91,19 @@ export function ProfileReview() {
           <div className="bg-white rounded-3xl p-6 shadow-xl border border-gray-100">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-gray-900 text-lg" style={{ fontWeight: 600 }}>Profile</h3>
-              <button className="flex items-center gap-2 text-indigo-600 hover:text-indigo-700 text-sm bg-indigo-50 px-3 py-2 rounded-xl transition-colors">
+              <button className="flex items-center gap-2 text-[#003267] hover:text-[#004685] text-sm bg-[#EAF2FB] px-3 py-2 rounded-xl transition-colors">
                 <Edit3 className="w-4 h-4" />
                 <span>Edit</span>
               </button>
             </div>
 
             {/* Avatar & Name */}
-            <div className="flex items-center gap-4 mb-6 p-4 bg-gradient-to-r from-indigo-50 to-violet-50 rounded-2xl border border-indigo-100">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center text-white text-2xl shadow-lg" style={{ fontWeight: 700 }}>J</div>
+            <div className="flex items-center gap-4 mb-6 p-4 bg-gradient-to-r from-[#EAF2FB] to-[#D9E8F8] rounded-2xl border border-[#BFD2EA]">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#003267] to-[#00509E] flex items-center justify-center text-white text-2xl shadow-lg" style={{ fontWeight: 700 }}>J</div>
               <div>
                 <h4 className="text-gray-900 text-lg" style={{ fontWeight: 600 }}>John Smith</h4>
                 <p className="text-gray-500 text-sm">Software Engineering Student</p>
-                <p className="text-indigo-600 text-sm">King Abdullah University | GPA: 4.7/5.0</p>
+                <p className="text-[#003267] text-sm">King Abdullah University | GPA: 4.7/5.0</p>
               </div>
             </div>
 
@@ -119,7 +118,7 @@ export function ProfileReview() {
                 const Icon = item.icon;
                 return (
                   <div key={item.label} className="bg-gray-50 rounded-xl p-3 flex items-start gap-3">
-                    <Icon className="w-4 h-4 text-indigo-400 mt-1 flex-shrink-0" />
+                    <Icon className="w-4 h-4 text-[#4B76A4] mt-1 flex-shrink-0" />
                     <div>
                       <p className="text-gray-400 text-xs">{item.label}</p>
                       <p className="text-gray-700 text-sm" style={{ fontWeight: 500 }}>{item.value}</p>
@@ -134,7 +133,7 @@ export function ProfileReview() {
               <p className="text-gray-500 text-sm mb-2" style={{ fontWeight: 500 }}>Skills</p>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
-                  <span key={skill} className="bg-indigo-50 text-indigo-700 border border-indigo-200 text-sm px-3 py-1 rounded-full">
+                  <span key={skill} className="bg-[#EAF2FB] text-[#003267] border border-[#BFD2EA] text-sm px-3 py-1 rounded-full">
                     {skill}
                   </span>
                 ))}
@@ -146,7 +145,7 @@ export function ProfileReview() {
               <p className="text-gray-500 text-sm mb-2" style={{ fontWeight: 500 }}>Interests</p>
               <div className="flex flex-wrap gap-2">
                 {interests.map((interest) => (
-                  <span key={interest} className="bg-violet-50 text-violet-700 border border-violet-200 text-sm px-3 py-1 rounded-full">
+                  <span key={interest} className="bg-[#EAF2FB] text-[#003267] border border-[#BFD2EA] text-sm px-3 py-1 rounded-full">
                     {interest}
                   </span>
                 ))}
@@ -159,7 +158,7 @@ export function ProfileReview() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => navigate('/student/dashboard')}
-            className="w-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white rounded-2xl py-5 flex items-center justify-center gap-3 shadow-xl shadow-indigo-500/25"
+            className="w-full bg-gradient-to-r from-[#003267] to-[#00509E] text-white rounded-2xl py-5 flex items-center justify-center gap-3 shadow-xl shadow-[#003267]/30"
             style={{ fontWeight: 700 }}
           >
             <CheckCircle2 className="w-6 h-6" />

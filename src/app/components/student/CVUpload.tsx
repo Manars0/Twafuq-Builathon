@@ -41,7 +41,7 @@ export function CVUpload() {
   };
 
   return (
-    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-violet-50 flex items-center justify-center p-6">
+    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-[#EAF2FB] flex items-center justify-center p-6">
       <div className="w-full max-w-2xl">
         <AnimatePresence mode="wait">
           {phase === 'upload' && (
@@ -49,7 +49,7 @@ export function CVUpload() {
               className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100"
             >
               <div className="text-center mb-8">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#003267] to-[#00509E] flex items-center justify-center mx-auto mb-4 shadow-lg">
                   <Upload className="w-8 h-8 text-white" />
                 </div>
                 <h2 className="text-gray-900 text-2xl mb-2" style={{ fontWeight: 700 }}>Upload Resume</h2>
@@ -62,7 +62,7 @@ export function CVUpload() {
                 onDragLeave={() => setIsDragging(false)}
                 onDrop={handleDrop}
                 className={`border-2 border-dashed rounded-2xl p-12 text-center transition-all duration-200 ${
-                  isDragging ? 'border-violet-400 bg-violet-50' : 'border-gray-200 bg-gray-50 hover:border-violet-300 hover:bg-violet-50'
+                  isDragging ? 'border-[#00509E] bg-[#EAF2FB]' : 'border-gray-200 bg-gray-50 hover:border-[#7FA7CF] hover:bg-[#EAF2FB]'
                 }`}
               >
                 <motion.div animate={isDragging ? { scale: 1.1 } : { scale: 1 }}>
@@ -71,7 +71,7 @@ export function CVUpload() {
                     {isDragging ? 'Drop the file here' : 'Drag and drop your resume file here'}
                   </p>
                   <p className="text-gray-400 text-sm mb-6">Supports PDF, DOC, DOCX (up to 10 MB)</p>
-                  <label className="cursor-pointer bg-violet-600 hover:bg-violet-700 text-white px-6 py-3 rounded-xl transition-colors inline-block"
+                  <label className="cursor-pointer bg-[#003267] hover:bg-[#00264D] text-white px-6 py-3 rounded-xl transition-colors inline-block"
                     style={{ fontWeight: 500 }}>
                     <input type="file" className="hidden" accept=".pdf,.doc,.docx" onChange={handleFileInput} />
                     Choose File
@@ -86,14 +86,14 @@ export function CVUpload() {
               className="bg-white rounded-3xl p-10 shadow-xl border border-gray-100 text-center"
             >
               <div className="w-20 h-20 relative mx-auto mb-8">
-                <div className="absolute inset-0 rounded-full border-4 border-violet-100" />
+                <div className="absolute inset-0 rounded-full border-4 border-[#D9E8F8]" />
                 <motion.div
-                  className="absolute inset-0 rounded-full border-4 border-violet-500 border-t-transparent"
+                  className="absolute inset-0 rounded-full border-4 border-[#003267] border-t-transparent"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                 />
-                <div className="absolute inset-3 rounded-full bg-violet-50 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-violet-500" />
+                <div className="absolute inset-3 rounded-full bg-[#EAF2FB] flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-[#003267]" />
                 </div>
               </div>
 
@@ -107,7 +107,7 @@ export function CVUpload() {
                 </div>
                 <div className="bg-gray-100 rounded-full h-3 overflow-hidden">
                   <motion.div
-                    className="bg-gradient-to-r from-violet-500 to-purple-500 h-3 rounded-full"
+                    className="bg-gradient-to-r from-[#003267] to-[#00509E] h-3 rounded-full"
                     style={{ width: `${progress}%` }}
                     transition={{ duration: 0.2 }}
                   />
@@ -146,11 +146,11 @@ export function CVUpload() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="text-gray-500 text-sm block mb-1">Name</label>
-                      <input defaultValue="John Smith" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-violet-400 transition-colors" />
+                      <input defaultValue="John Smith" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-[#00509E] transition-colors" />
                     </div>
                     <div>
                       <label className="text-gray-500 text-sm block mb-1">Major</label>
-                      <input defaultValue="Computer Science" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-violet-400 transition-colors" />
+                      <input defaultValue="Computer Science" className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-800 focus:outline-none focus:border-[#00509E] transition-colors" />
                     </div>
                   </div>
 
@@ -158,12 +158,12 @@ export function CVUpload() {
                     <label className="text-gray-500 text-sm block mb-2">Extracted Skills</label>
                     <div className="flex flex-wrap gap-2">
                       {extractedSkills.map((skill) => (
-                        <span key={skill} className="bg-violet-50 text-violet-700 border border-violet-200 text-sm px-3 py-1 rounded-full flex items-center gap-1">
+                        <span key={skill} className="bg-[#EAF2FB] text-[#003267] border border-[#BFD2EA] text-sm px-3 py-1 rounded-full flex items-center gap-1">
                           {skill}
-                          <button className="text-violet-400 hover:text-violet-600 text-base leading-none">×</button>
+                          <button className="text-[#4B76A4] hover:text-[#003267] text-base leading-none">×</button>
                         </span>
                       ))}
-                      <button className="border-2 border-dashed border-gray-300 text-gray-400 text-sm px-3 py-1 rounded-full hover:border-violet-300 hover:text-violet-500">
+                      <button className="border-2 border-dashed border-gray-300 text-gray-400 text-sm px-3 py-1 rounded-full hover:border-[#7FA7CF] hover:text-[#003267]">
                         + Add
                       </button>
                     </div>
@@ -193,7 +193,7 @@ export function CVUpload() {
 
               <button
                 onClick={() => navigate('/student/review')}
-                className="w-full bg-gradient-to-r from-violet-600 to-purple-600 text-white rounded-2xl py-4 flex items-center justify-center gap-2 shadow-lg shadow-violet-500/20"
+                className="w-full bg-gradient-to-r from-[#003267] to-[#00509E] text-white rounded-2xl py-4 flex items-center justify-center gap-2 shadow-lg shadow-[#003267]/25"
                 style={{ fontWeight: 600 }}
               >
                 <span>Confirm and Continue to Review Profile</span>

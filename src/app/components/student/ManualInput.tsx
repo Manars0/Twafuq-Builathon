@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { ArrowRight, ArrowLeft, PenLine, Plus, X, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import wardiereLogo from '../../../imports/Wardiere.png';
 
 const majors = ['Software Engineering', 'Computer Science', 'Computer Engineering', 'Information Technology', 'Information Security', 'Artificial Intelligence', 'Data Science', 'Other'];
 const suggestedSkills = ['Python', 'JavaScript', 'React', 'Java', 'SQL', 'Machine Learning', 'Flutter', 'UI/UX', 'Figma', 'Cloud', 'DevOps', 'AI'];

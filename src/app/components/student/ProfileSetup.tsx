@@ -9,8 +9,8 @@ const options = [
     title: 'Import from LinkedIn',
     description: 'Import your skills and experience automatically from your LinkedIn profile with one click',
     badge: 'Fastest',
-    badgeColor: 'bg-blue-100 text-blue-700',
-    gradient: 'from-blue-500 to-cyan-500',
+    badgeColor: 'bg-[#EAF2FB] text-[#003267]',
+    gradient: 'from-[#003267] to-[#00509E]',
     route: '/student/linkedin',
   },
   {
@@ -19,8 +19,8 @@ const options = [
     title: 'Upload Resume',
     description: 'Upload your resume file and AI will automatically extract your information',
     badge: 'AI-Powered',
-    badgeColor: 'bg-violet-100 text-violet-700',
-    gradient: 'from-violet-500 to-purple-500',
+    badgeColor: 'bg-[#EAF2FB] text-[#003267]',
+    gradient: 'from-[#003267] to-[#004685]',
     route: '/student/cv-upload',
   },
   {
@@ -39,7 +39,7 @@ export function ProfileSetup() {
   const navigate = useNavigate();
 
   return (
-    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 flex items-center justify-center p-6">
+    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-[#EAF2FB] flex items-center justify-center p-6">
       <div className="w-full max-w-3xl">
         {/* Header */}
         <motion.div
@@ -47,7 +47,7 @@ export function ProfileSetup() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-indigo-500/30">
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#003267] to-[#00509E] flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#003267]/30">
             <Sparkles className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-gray-900 text-3xl mb-3" style={{ fontWeight: 800 }}>
@@ -69,7 +69,7 @@ export function ProfileSetup() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.1 + 0.2 }}
                 onClick={() => navigate(option.route)}
-                className="group cursor-pointer bg-white rounded-2xl p-6 border border-gray-100 hover:border-indigo-200 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01]"
+                className="group cursor-pointer bg-white rounded-2xl p-6 border border-gray-100 hover:border-[#BFD2EA] shadow-sm hover:shadow-md transition-all duration-300 hover:scale-[1.01]"
               >
                 <div className="flex items-center gap-5">
                   <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${option.gradient} flex items-center justify-center shadow-md flex-shrink-0`}>
@@ -86,8 +86,8 @@ export function ProfileSetup() {
                     <p className="text-gray-500">{option.description}</p>
                   </div>
 
-                  <div className="w-10 h-10 rounded-full bg-gray-50 group-hover:bg-indigo-50 flex items-center justify-center transition-colors flex-shrink-0">
-                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-indigo-500 transition-colors" />
+                  <div className="w-10 h-10 rounded-full bg-gray-50 group-hover:bg-[#EAF2FB] flex items-center justify-center transition-colors flex-shrink-0">
+                    <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-[#003267] transition-colors" />
                   </div>
                 </div>
               </motion.div>
