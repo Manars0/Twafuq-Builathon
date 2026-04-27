@@ -1,0 +1,136 @@
+import { useNavigate } from 'react-router';
+import { Building2, Landmark, Grid, Sparkles } from 'lucide-react';
+import { motion } from 'motion/react';
+import { useState } from 'react';
+
+const options = [
+  {
+    id: 'government',
+    icon: Landmark,
+    title: 'Government',
+    description: 'Government agency or public sector organization',
+    gradient: 'from-emerald-600 to-teal-600',
+  },
+  {
+    id: 'private',
+    icon: Building2,
+    title: 'Private',
+    description: 'Private company or corporation',
+    gradient: 'from-emerald-700 to-emerald-800',
+  },
+  {
+    id: 'no-preference',
+    icon: Grid,
+    title: 'No Preference',
+    description: 'Accept candidates interested in any sector type',
+    gradient: 'from-teal-600 to-cyan-600',
+  },
+];
+
+export function CompanySectorSelection() {
+  const navigate = useNavigate();
+  const [selected, setSelected] = useState<string | null>(null);
+
+  const handleContinue = () => {
+    if (selected) {
+      navigate('/company/internship-type-selection');
+    }
+  };
+
+  return (
+    <div dir="ltr" className="min-h-screen bg-gradient-to-br from-gray-50 to-emerald-50 flex items-center justify-center p-6">
+      <div className="w-full max-w-3xl">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-12"
+        >
+          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-emerald-500/30">
+            <Sparkles className="w-8 h-8 text-white" />
+          </div>
+          <h1 className="text-gray-900 text-3xl mb-3" style={{ fontWeight: 800 }}>
+            What sector is your organization in?
+          </h1>
+          <p className="text-gray-500 text-lg mb-2">
+            Help us match you with the right candidates
+          </p>
+          <p className="text-gray-400 text-sm">
+            Choose your preference or select 'No Preference' to see all options
+          </p>
+        </motion.div>
+
+        {/* Options */}
+        <div className="space-y-4 mb-8">
+          {options.map((option, index) => {
+            const Icon = option.icon;
+            const isSelected = selected === option.id;
+            return (
+              <motion.div
+                key={option.id}
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1 + 0.2 }}
+                onClick={() => setSelected(option.id)}
+                className={`group cursor-pointer bg-white rounded-2xl p-6 border-2 transition-all duration-300 hover:scale-[1.01] ${
+                  isSelected
+                    ? 'border-emerald-400 shadow-lg shadow-emerald-500/20'
+                    : 'border-gray-100 hover:border-emerald-200 shadow-sm hover:shadow-md'
+                }`}
+              >
+                <div className="flex items-center gap-5">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${option.gradient} flex items-center justify-center shadow-md flex-shrink-0`}>
+                    <Icon className="w-7 h-7 text-white" />
+                  </div>
+
+                  <div className="flex-1">
+                    <h3 className="text-gray-900 text-lg mb-1" style={{ fontWeight: 600 }}>
+                      {option.title}
+                    </h3>
+                    <p className="text-gray-500">{option.description}</p>
+                  </div>
+
+                  <div
+                    className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 transition-colors ${
+                      isSelected
+                        ? 'border-emerald-500 bg-emerald-500'
+                        : 'border-gray-300 bg-white'
+                    }`}
+                  >
+                    {isSelected && (
+                      <div className="w-2 h-2 bg-white rounded-full" />
+                    )}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Continue Button */}
+        <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+          onClick={handleContinue}
+          disabled={!selected}
+          className={`w-full rounded-2xl py-4 transition-all duration-200 ${
+            selected
+              ? 'bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/30'
+              : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+          }`}
+          style={{ fontWeight: 600 }}
+        >
+          Continue
+        </motion.button>
+
+        {/* Progress indicator */}
+        <div className="flex items-center justify-center gap-2 mt-6">
+          <div className="w-8 h-1.5 rounded-full bg-emerald-600" />
+          <div className="w-8 h-1.5 rounded-full bg-gray-200" />
+          <div className="w-8 h-1.5 rounded-full bg-gray-200" />
+        </div>
+      </div>
+    </div>
+  );
+}
