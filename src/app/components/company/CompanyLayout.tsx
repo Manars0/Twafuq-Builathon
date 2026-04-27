@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router';
 import {
-  LayoutDashboard, Plus, Briefcase, Users, Bell, CreditCard, LogOut, Building2
+  LayoutDashboard, Plus, Briefcase, Users, Bell, CreditCard, LogOut, Building2, Menu, X
 } from 'lucide-react';
 import tawafuqLogo from '../../../imports/Tawafuq.png';
 
@@ -15,19 +16,52 @@ const navItems = [
 
 export function CompanyLayout() {
   const navigate = useNavigate();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const closeSidebar = () => setSidebarOpen(false);
 
   return (
     <div dir="ltr" className="min-h-screen bg-gray-50 flex">
+      {/* Mobile overlay */}
+      <button
+        type="button"
+        aria-label="Close menu"
+        onClick={closeSidebar}
+        className={`fixed inset-0 z-40 bg-black/40 md:hidden transition-opacity duration-300 ${
+          sidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+      />
+
       {/* Main Content */}
-      <main className="flex-1 min-h-screen" style={{ marginLeft: '280px' }}>
+      <main className="flex-1 min-h-screen w-full md:ml-[280px] ml-0">
+        <div className="md:hidden sticky top-0 z-30 flex items-center gap-3 bg-white border-b border-gray-100 px-4 py-3 shadow-sm">
+          <button
+            type="button"
+            aria-label="Open menu"
+            onClick={() => setSidebarOpen(true)}
+            className="p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition-colors"
+          >
+            <Menu className="w-6 h-6" />
+          </button>
+        </div>
         <Outlet />
       </main>
 
       {/* Left Sidebar */}
       <aside
-        className="fixed left-0 top-0 h-screen bg-white border-r border-gray-100 shadow-sm flex flex-col z-20"
-        style={{ width: '280px' }}
+        className={`fixed left-0 top-0 h-screen bg-white border-r border-gray-100 shadow-sm flex flex-col z-50 md:z-20 transition-transform duration-300 ease-out w-[280px] ${
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        } md:translate-x-0`}
       >
+        <button
+          type="button"
+          aria-label="Close menu"
+          onClick={closeSidebar}
+          className="md:hidden absolute right-3 top-3 z-10 p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors"
+        >
+          <X className="w-5 h-5" />
+        </button>
+
         {/* Logo */}
         <div className="px-4 py-6 border-b border-gray-100">
           <div className="flex flex-col items-center gap-2 w-full min-w-0 text-center">
@@ -64,6 +98,7 @@ export function CompanyLayout() {
               <NavLink
                 key={item.to}
                 to={item.to}
+                onClick={closeSidebar}
                 className={({ isActive }) =>
                   `flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                     isActive
@@ -94,7 +129,11 @@ export function CompanyLayout() {
         {/* Bottom */}
         <div className="p-4 border-t border-gray-100 space-y-1">
           <button
-            onClick={() => navigate('/')}
+            type="button"
+            onClick={() => {
+              closeSidebar();
+              navigate('/');
+            }}
             className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-gray-500 hover:bg-red-50 hover:text-red-500 transition-all duration-200"
           >
             <LogOut className="w-5 h-5" />
