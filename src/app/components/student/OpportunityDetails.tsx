@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
-import { ArrowLeft, MapPin, Clock, Users, CheckCircle2, XCircle, Sparkles, Send } from 'lucide-react';
-import { motion } from 'motion/react';
+import { ArrowLeft, MapPin, Clock, Users, CheckCircle2, XCircle, Sparkles, Send, X } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
 import { opportunities } from '../../../data/mockData';
 
 const mySkills = ['React', 'JavaScript', 'TypeScript', 'Node.js', 'Python', 'SQL'];
@@ -21,16 +22,70 @@ function SkillMatch({ skill, hasIt }: { skill: string; hasIt: boolean }) {
   );
 }
 
+type ApplyButtonProps = {
+  isApplying: boolean;
+  isApplied: boolean;
+  onClick: () => void;
+};
+
+function ApplyButton({ isApplying, isApplied, onClick }: ApplyButtonProps) {
+  return (
+    <motion.button
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.3 }}
+      whileHover={!isApplying && !isApplied ? { scale: 1.02 } : undefined}
+      whileTap={!isApplying && !isApplied ? { scale: 0.98 } : undefined}
+      disabled={isApplying || isApplied}
+      onClick={onClick}
+      className={`w-full text-white rounded-xl py-5 flex items-center justify-center gap-3 shadow-xl transition-all ${
+        isApplying || isApplied
+          ? 'bg-gradient-to-r from-[#4B76A4] to-[#5C8FBE] shadow-[#003267]/20 cursor-not-allowed'
+          : 'bg-gradient-to-r from-[#003267] to-[#00509E] shadow-[#003267]/30'
+      }`}
+      style={{ fontWeight: 700 }}
+    >
+      {isApplying ? (
+        <>
+          <span className="w-5 h-5 rounded-full border-2 border-white/40 border-t-white animate-spin" />
+          <span className="text-lg">Applying...</span>
+        </>
+      ) : isApplied ? (
+        <span className="text-lg">Applied ✓</span>
+      ) : (
+        <>
+          <Send className="w-5 h-5" />
+          <span className="text-lg">Apply Now</span>
+        </>
+      )}
+    </motion.button>
+  );
+}
+
 export function OpportunityDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
   const opp = opportunities.find((o) => o.id === Number(id)) || opportunities[0];
   const matchPercent = opp.match;
+  const [isApplying, setIsApplying] = useState(false);
+  const [isApplied, setIsApplied] = useState(false);
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
 
   const radius = 52;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (matchPercent / 100) * circumference;
   const color = matchPercent >= 90 ? '#10B981' : matchPercent >= 70 ? '#003267' : '#F59E0B';
+
+  const handleApply = () => {
+    if (isApplying || isApplied) return;
+
+    setIsApplying(true);
+    window.setTimeout(() => {
+      setIsApplying(false);
+      setIsApplied(true);
+      setShowSuccessToast(true);
+    }, 1000);
+  };
 
   return (
     <div className="p-6 max-w-3xl">
@@ -166,18 +221,33 @@ export function OpportunityDetails() {
       </motion.div>
 
       {/* Apply Button */}
-      <motion.button
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        className="w-full bg-gradient-to-r from-[#003267] to-[#00509E] text-white rounded-2xl py-5 flex items-center justify-center gap-3 shadow-xl shadow-[#003267]/30"
-        style={{ fontWeight: 700 }}
-      >
-        <Send className="w-5 h-5" />
-        <span className="text-lg">Apply Now</span>
-      </motion.button>
+      <ApplyButton isApplying={isApplying} isApplied={isApplied} onClick={handleApply} />
+
+      <AnimatePresence>
+        {showSuccessToast && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.92, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.96, y: 8 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="fixed bottom-6 right-6 z-50 w-[min(92vw,26rem)] bg-white rounded-xl border border-blue-100 shadow-2xl shadow-[#003267]/15 p-4"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-[#003267]" style={{ fontWeight: 700 }}>Application Submitted!</h3>
+                <p className="text-gray-600 mt-1 text-sm">Your application has been successfully sent to the company.</p>
+              </div>
+              <button
+                onClick={() => setShowSuccessToast(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+                aria-label="Close success notification"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
