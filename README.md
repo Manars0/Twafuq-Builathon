@@ -13,7 +13,7 @@ Twafuq is an AI-powered platform that helps students discover internships and en
 Instead of relying on CVs, assumptions, and fragmented interviews, Twafuq focuses on real responses, practical skills, and consistent evaluation.
 
 <p align="center">
-  <img src="./assets/comparison-table.png" width="900" alt="Comparison"/>
+  <img src="./assets/comparison.png" width="900" alt="Comparison"/>
 </p>
 
 ## My Contribution
@@ -26,7 +26,7 @@ Instead of relying on CVs, assumptions, and fragmented interviews, Twafuq focuse
 
 ## Stack
 
-'React' · 'TypeScript' · 'Tailwind CSS' · 'Vite' · 'Figma'
+`React` · `TypeScript` · `Tailwind CSS` · `Vite` · `Figma`
 
 ## Live Demo
 
