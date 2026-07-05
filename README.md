@@ -1,11 +1,33 @@
+> Built during Buildathon 2026 • Award-winning project
 
-  # Twafuq
+# Twafuq
 
-  This is a code bundle for Twafuq. The original project is available at https://www.figma.com/design/GmtM40W8PVEi9oePdfmU7W/Twafuq.
+> Internships should be earned through potential, not chance.
 
-  ## Running the code
+Twafuq is an AI-powered platform that helps students discover internships and enables companies to evaluate candidates through a structured, transparent hiring process.
 
-  Run `npm i` to install the dependencies.
+<p align="center">
+  <img src="dist/assets/landing-page.png" width="900" alt="Twafuq Landing Page"/>
+</p>
 
-  Run `npm run dev` to start the development server.
-  
+Instead of relying on CVs, assumptions, and fragmented interviews, Twafuq focuses on real responses, practical skills, and consistent evaluation.
+
+<p align="center">
+  <img src="dist/assets/comparison-table.png" width="900" alt="Traditional Hiring vs Twafuq"/>
+</p>
+
+## My Contribution
+
+- Frontend Development
+- UI Implementation
+- Responsive Design
+- Product Iteration
+- Team Collaboration
+
+## Stack
+
+React · TypeScript · Tailwind CSS · Vite · Figma
+
+## Live Demo
+
+https://twafuq-buildathon.vercel.app
